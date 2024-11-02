@@ -1,15 +1,13 @@
 import React from 'react';
-import OTProImg from '../assets/OTProImg.png';
+import ins1 from '../assets/ins1.png';
+import ins2 from '../assets/ins2.png';
+import ins3 from '../assets/ins3.png';
+import ins4 from '../assets/ins4.png';
+import ins5 from '../assets/ins5.png';
+import ins6 from '../assets/ins6.png';
 
 const ShareSection = () => {
-    const images = [
-        'https://png.pngtree.com/png-vector/20240407/ourmid/pngtree-nike-air-max-97-sneaker-in-silver-png-image_12266447.png',
-        'https://png.pngtree.com/png-vector/20240407/ourmid/pngtree-nike-air-max-97-sneaker-in-silver-png-image_12266447.png',
-        'https://png.pngtree.com/png-vector/20240407/ourmid/pngtree-nike-air-max-97-sneaker-in-silver-png-image_12266447.png',
-        'https://png.pngtree.com/png-vector/20240407/ourmid/pngtree-nike-air-max-97-sneaker-in-silver-png-image_12266447.png',
-        'https://png.pngtree.com/png-vector/20240407/ourmid/pngtree-nike-air-max-97-sneaker-in-silver-png-image_12266447.png',
-        'https://png.pngtree.com/png-vector/20240407/ourmid/pngtree-nike-air-max-97-sneaker-in-silver-png-image_12266447.png',
-    ];
+    const images = [ins1, ins2, ins3, ins4, ins5, ins6];
     return (
         <div className='container mx-auto px-4 py-16'>
             {/* Social Share Section */}
@@ -30,7 +28,7 @@ const ShareSection = () => {
                             <img
                                 src={src}
                                 alt={`Instagram post ${index + 1}`}
-                                className='w-full h-full object-cover hover:scale-110 transition-transform duration-300'
+                                className='w-full h-full object-cover '
                             />
                         </div>
                     ))}
