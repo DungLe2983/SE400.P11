@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 
 import "./index.scss";
+import 'remixicon/fonts/remixicon.css';
 
 const App = () => {
   const [routes, setRoutes] = useState([]);
