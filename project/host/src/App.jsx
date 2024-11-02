@@ -6,14 +6,18 @@ import {
 } from "react-router-dom";
 
 import "./index.scss";
-import 'remixicon/fonts/remixicon.css';
+import "remixicon/fonts/remixicon.css";
 
 const App = () => {
   const [routes, setRoutes] = useState([]);
 
   useEffect(() => {
-    Promise.all([import("home/App")]).then(([home]) => {
-      setRoutes([...home.routes]);
+    Promise.all([
+      import("home/App"),
+      import("product/App"),
+      // import("decide/App"),
+    ]).then(([home, product]) => {
+      setRoutes([...home.routes, ...product.routes]);
     });
   }, []);
 
