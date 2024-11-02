@@ -13,7 +13,7 @@ module.exports = (_, argv) => ({
   },
 
   resolve: {
-    extensions: [".tsx", ".ts", ".jsx", ".js", ".json", ".css", "..."],
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
 
   devServer: {
@@ -62,12 +62,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "products",
+      name: "host",
       filename: "remoteEntry.js",
-      remotes: {},
-      exposes: {
-        "./Header": "./src/components/Header.jsx",
+      remotes: {
+        home: "home@http://localhost:3001/remoteEntry.js",
       },
+      exposes: {},
       shared: {
         ...deps,
         react: {
