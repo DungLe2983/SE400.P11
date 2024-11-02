@@ -6,7 +6,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className=" bg-transparent shadow-lg h-16 fixed top-0 w-full">
+    <div className=" bg-white shadow-lg h-16 fixed top-0 w-full">
       <header className="container mx-auto flex h-full justify-between items-center">
         <Link to={"/"}>
           <p className="font-bold text-2xl">Shosing</p>
@@ -51,7 +51,7 @@ const Header = () => {
             data-collapse-toggle="navbar-search"
             aria-controls="navbar-search"
             aria-expanded="false"
-            className="md:order-3 text-blue-600 hover:text-blue-800 hover:scale-105 transition-all font-bold ml-0 md:ml-4 px-4 md:px-6 focus:outline-none bg-blue-100 border border-blue-300 rounded-lg text-xs md:text-sm p-2.5"
+            className="md:order-3 text-white hover:scale-105 transition-all font-bold ml-0 md:ml-4 px-4 md:px-6 focus:outline-none bg-[#100D22] rounded-lg text-xs md:text-sm p-2.5"
           >
             Login
           </Link>

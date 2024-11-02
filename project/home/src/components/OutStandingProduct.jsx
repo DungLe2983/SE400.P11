@@ -5,7 +5,7 @@ const OutStandingProduct = () => {
   return (
     <div className="flex items-center pt-16">
       <section className="w-1/2 py-8">
-        <h3 className="text-pink-500 font-semibold text-sm uppercase mb-6">
+        <h3 className="text-pink-500 font-semibold text-lg uppercase mb-6">
           Road Racing Shoes
         </h3>
         <h1 className="text-6xl font-extrabold text-gray-900 leading-tight mb-4">

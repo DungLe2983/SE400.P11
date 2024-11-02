@@ -6,7 +6,7 @@ export const navigation = [
     },
     {
         label: 'Shop',
-        href: 'shop',
+        href: '/shop',
         icon: <i className='ri-film-fill'></i>,
     },
 
