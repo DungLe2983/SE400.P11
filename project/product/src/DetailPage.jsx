@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Review from "./components/Review";
+import ProdudtList from "./components/ProductList";
 
 const DetailPage = () => {
   const { id } = useParams();
@@ -153,21 +154,7 @@ const DetailPage = () => {
       <section>
         <h2 className="text-3xl font-bold text-center mb-8">Other Products</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* {otherProducts.map((product) => (
-            <div key={product.id} className="group">
-              <div className="aspect-square relative overflow-hidden rounded-lg mb-4">
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <h3 className="font-medium">{product.name}</h3>
-              <p className="text-muted-foreground">{product.category}</p>
-              <p className="font-medium">${product.price}</p>
-            </div>
-          ))} */}
+          <ProdudtList products={[]} count={4} />
         </div>
       </section>
     </div>
