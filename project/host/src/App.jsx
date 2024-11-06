@@ -15,9 +15,9 @@ const App = () => {
     Promise.all([
       import("home/App"),
       import("product/App"),
-      // import("decide/App"),
-    ]).then(([home, product]) => {
-      setRoutes([...home.routes, ...product.routes]);
+      import("checkout/App"),
+    ]).then(([home, product, checkout]) => {
+      setRoutes([...home.routes, ...product.routes, ...checkout.routes]);
     });
   }, []);
 

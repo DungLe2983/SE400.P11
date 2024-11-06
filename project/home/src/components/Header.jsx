@@ -6,13 +6,13 @@ import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className=" bg-white shadow-lg h-16 fixed top-0 w-full">
+    <div className=" bg-white shadow-lg h-16 fixed top-0 w-full z-50">
       <header className="container mx-auto flex h-full justify-between items-center">
         <Link to={"/"}>
           <p className="font-bold text-2xl">Shosing</p>
         </Link>
 
-        <nav className="hidden lg:flex items-center ml-8 gap-4">
+        <nav className="flex items-center ml-8 gap-4">
           {navigation.map((nav, index) => {
             return (
               <div key={nav.label}>
@@ -35,7 +35,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Search..."
-              className=" opacity-60 w-96 px-4 py-2 outline-none border border-slate-500 rounded hidden lg:block "
+              className=" opacity-60 w-96 px-4 py-2 outline-none border border-slate-500 rounded block "
             />
             <Link to={"/search"} className="absolute right-0 mr-2">
               <i className="ri-search-line text-gray-700 text-xl"></i>

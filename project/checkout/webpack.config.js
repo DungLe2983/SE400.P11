@@ -64,9 +64,12 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "checkout",
       filename: "remoteEntry.js",
-      remotes: {},
+      remotes: {
+        home: "home@http://localhost:3001/remoteEntry.js",
+      },
       exposes: {
         "./CartButton": "./src/components/CartButton.jsx",
+        "./App": "./src/App.jsx",
       },
       shared: {
         ...deps,
