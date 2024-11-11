@@ -46,7 +46,7 @@ const Header = () => {
           </button>
 
           <Link
-            to={"/login"}
+            to={"/auth/login"}
             type="button"
             data-collapse-toggle="navbar-search"
             aria-controls="navbar-search"

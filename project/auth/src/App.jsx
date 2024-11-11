@@ -1,19 +1,44 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import "./index.scss";
+import "remixicon/fonts/remixicon.css";
 
-const App = () => (
-  <div className="mt-10 text-3xl mx-auto max-w-6xl">
-    <div>Name: auth</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Tailwind</div>
-  </div>
-);
-const rootElement = document.getElementById("app")
-if (!rootElement) throw new Error("Failed to find the root element")
+const { Suspense, lazy } = React;
 
-const root = ReactDOM.createRoot(rootElement)
+const LoginPage = lazy(() => import("./LoginPage"));
+const RegisterPage = lazy(() => import("./RegisterPage"));
+const ProfilePage = lazy(() => import("./ProfilePage"));
 
-root.render(<App />)
+export const routes = [
+  {
+    path: "/auth/login",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <LoginPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/auth/register",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <RegisterPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/auth/profile",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <ProfilePage />
+      </Suspense>
+    ),
+  },
+];
+
+const App = () => {
+  return <RouterProvider router={createBrowserRouter(routes)} />;
+};
+
+export default App;

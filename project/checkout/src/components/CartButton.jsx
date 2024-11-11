@@ -4,7 +4,6 @@ const CartButton = () => {
   const navigate = useNavigate();
 
   const hanldeCartClick = () => {
-    // alert("cart click!");
     navigate("/cart");
   };
 

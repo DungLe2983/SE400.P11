@@ -16,8 +16,14 @@ const App = () => {
       import("home/App"),
       import("product/App"),
       import("checkout/App"),
-    ]).then(([home, product, checkout]) => {
-      setRoutes([...home.routes, ...product.routes, ...checkout.routes]);
+      import("auth/App"),
+    ]).then(([home, product, checkout, auth]) => {
+      setRoutes([
+        ...home.routes,
+        ...product.routes,
+        ...checkout.routes,
+        ...auth.routes,
+      ]);
     });
   }, []);
 
