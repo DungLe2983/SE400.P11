@@ -10,6 +10,7 @@ const printCompilationMessage = require("./compilation.config.js");
 module.exports = (_, argv) => ({
   output: {
     publicPath: "http://localhost:3000/",
+    // publicPath: "auto",
   },
 
   resolve: {
@@ -18,6 +19,9 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3000,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
     onListening: function (devServer) {
@@ -70,7 +74,9 @@ module.exports = (_, argv) => ({
         checkout: "checkout@http://localhost:3003/remoteEntry.js",
         auth: "auth@http://localhost:3004/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        "./recoil/store": "./src/recoil/store.js",
+      },
       shared: {
         ...deps,
         react: {
@@ -80,6 +86,13 @@ module.exports = (_, argv) => ({
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
+        },
+        recoil: {
+          singleton: true,
+          requiredVersion: deps.react,
+        },
+        "react-router-dom": {
+          singleton: true,
         },
       },
     }),

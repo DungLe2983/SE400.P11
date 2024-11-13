@@ -41,9 +41,9 @@ const Header = () => {
               <i className="ri-search-line text-gray-700 text-xl"></i>
             </Link>
           </form>
-          <button>
+          <div>
             <CartButton />
-          </button>
+          </div>
 
           <Link
             to={"/auth/login"}

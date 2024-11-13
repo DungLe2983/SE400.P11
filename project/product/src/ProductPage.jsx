@@ -45,7 +45,7 @@ const ProductPage = () => {
           <h1 className="text-2xl font-bold">All Products</h1>
           <button className="flex items-center text-sm border px-4 py-2 rounded-lg">
             <span>Sort By</span>
-            <i class="ri-arrow-down-s-line text-lg"></i>
+            <i className="ri-arrow-down-s-line text-lg"></i>
           </button>
         </div>
 

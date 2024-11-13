@@ -1,10 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useRecoilState, useRecoilValue } from "recoil";
+
+import { userState } from "host/recoil/store";
 
 import Header from "home/Header";
 import Footer from "home/Footer";
 
 const LoginPage = () => {
+  // const [user, setUser] = useRecoilState(userState);
+  const user = useRecoilValue(userState);
+
+  console.log("user in store: ", user);
+
   return (
     <>
       <Header />
@@ -38,6 +46,7 @@ const LoginPage = () => {
               type="password"
               placeholder="yourpassword"
               className="w-full p-4 mb-4 border border-slate-500 rounded-lg"
+              autoComplete="username"
             />
           </div>
 

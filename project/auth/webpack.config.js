@@ -18,6 +18,9 @@ module.exports = (_, argv) => ({
 
   devServer: {
     port: 3004,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
     onListening: function (devServer) {
@@ -65,6 +68,7 @@ module.exports = (_, argv) => ({
       name: "auth",
       filename: "remoteEntry.js",
       remotes: {
+        host: "host@http://localhost:3000/remoteEntry.js",
         home: "home@http://localhost:3001/remoteEntry.js",
       },
       exposes: {
@@ -79,6 +83,12 @@ module.exports = (_, argv) => ({
         "react-dom": {
           singleton: true,
           requiredVersion: deps["react-dom"],
+        },
+        recoil: {
+          singleton: true,
+        },
+        "react-router-dom": {
+          singleton: true,
         },
       },
     }),
