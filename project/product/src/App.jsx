@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "remixicon/fonts/remixicon.css";
 
 import "./index.scss";
+import SearchPage from "./SearchPage";
+
 
 const { Suspense, lazy } = React;
 
@@ -23,6 +25,14 @@ export const routes = [
     element: (
       <Suspense fallback={<div>Loading...</div>}>
         <DetailPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/search",
+    element: (
+      <Suspense fallback={<div>Loading...</div>}>
+        <SearchPage />
       </Suspense>
     ),
   },
