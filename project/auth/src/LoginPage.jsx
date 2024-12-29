@@ -9,6 +9,7 @@ import Footer from "home/Footer";
 
 const LoginPage = () => {
   // const [user, setUser] = useRecoilState(userState);
+
   const user = useRecoilValue(userState);
 
   console.log("user in store: ", user);
@@ -16,65 +17,63 @@ const LoginPage = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto my-24">
+      <div className='container mx-auto my-24'>
         {/* Login */}
-        <div className="flex justify-center items-center mb-6">
-          <h2 className="text-4xl font-bold">Login</h2>
-          {/* <button className="text-gray-400 hover:text-gray-600">
-            <i className="ri-close-line text-2xl" />
-          </button> */}
+        <div className='flex justify-center items-center mb-6'>
+          <h2 className='text-4xl font-bold'>Login</h2>
         </div>
 
         {/* Form */}
-        <form className="max-w-96 mx-auto">
+        <form className='max-w-96 mx-auto'>
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
-              Username
+            <label className='block text-sm font-semibold text-gray-700 mb-1'>
+              Email
             </label>
             <input
-              type="text"
-              placeholder="shosing@123"
-              className="w-full p-4 mb-4 border border-slate-500 rounded-lg"
+              type='email'
+              placeholder='shosing@gmail.com'
+              className='w-full p-4 mb-4 border border-slate-500 rounded-lg'
+              required
             />
           </div>
 
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-1">
+            <label className='block text-sm font-semibold text-gray-700 mb-1'>
               Password
             </label>
             <input
-              type="password"
-              placeholder="yourpassword"
-              className="w-full p-4 mb-4 border border-slate-500 rounded-lg"
-              autoComplete="username"
+              type='password'
+              placeholder='yourpassword'
+              className='w-full p-4 mb-4 border border-slate-500 rounded-lg'
+              autoComplete='username'
             />
           </div>
 
-          <div className="flex items-center justify-between mb-6">
-            <div className=" flex items-center  justify-center gap-2">
-              <input type="checkbox" className="w-4 h-4" id="remember" />
-              <div className="text-sm text-slate-700">Remember me</div>
+          <div className='flex items-center justify-between mb-6'>
+            <div className=' flex items-center  justify-center gap-2'>
+              <input type='checkbox' className='w-4 h-4' id='remember' />
+              <div className='text-sm text-slate-700'>Remember me</div>
             </div>
             <button
-              type="button"
-              className="text-sm text-slate-700 hover:font-bold underline"
+              type='button'
+              className='text-sm text-slate-700 hover:font-bold underline'
             >
               Forgot Password
             </button>
           </div>
 
           <button
-            type="submit"
-            className="w-full bg-[#100D22] text-white py-2 rounded-md hover:scale-105 transition-colors mb-4"
+            type='submit'
+            className='w-full bg-[#100D22] text-white py-2 rounded-md hover:scale-105 transition-colors mb-4'
           >
             Login
           </button>
 
-          <p className="text-center text-sm text-gray-600">
+          <p className='text-center text-sm text-gray-600'>
             Not a member?{" "}
             <Link
-              to="/auth/register"
-              className="text-slate-700 hover:font-bold underline"
+              to='/auth/register'
+              className='text-slate-700 hover:font-bold underline'
             >
               Register
             </Link>

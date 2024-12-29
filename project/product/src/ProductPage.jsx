@@ -1,13 +1,69 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Filter from "./components/Filter";
 import ProductCard from "./components/ProductCard";
 import ProductList from "./components/ProductList";
 import Header from "home/Header";
 import Footer from "home/Footer";
+import { getAllProducts } from "../src/service/productService";
+
+// const products = [
+//   {
+//     id: 1,
+//     name: "Nike Air Max 2021",
+//     image: "https://api.slingacademy.com/public/sample-photos/81.jpeg",
+//     category: "Men's Shoes",
+//     price: 213,
+//   },
+//   {
+//     id: 2,
+//     name: "Adidas Ultraboost 2022",
+//     image: "https://api.slingacademy.com/public/sample-photos/82.jpeg",
+//     category: "Women's Shoes",
+//     price: 180,
+//   },
+//   {
+//     id: 3,
+//     name: "Nike Air Max 2021",
+//     image: "https://api.slingacademy.com/public/sample-photos/83.jpeg",
+//     category: "Men's Shoes",
+//     price: 213,
+//   },
+//   {
+//     id: 4,
+//     name: "Adidas Ultraboost 2022",
+//     image: "https://api.slingacademy.com/public/sample-photos/84.jpeg",
+//     category: "Women's Shoes",
+//     price: 180,
+//   },
+//   {
+//     id: 5,
+//     name: "Nike Air Max 2021",
+//     image: "https://api.slingacademy.com/public/sample-photos/85.jpeg",
+//     category: "Men's Shoes",
+//     price: 213,
+//   },
+//   {
+//     id: 6,
+//     name: "Adidas Ultraboost 2022",
+//     image: "https://api.slingacademy.com/public/sample-photos/86.jpeg",
+//     category: "Women's Shoes",
+//     price: 180,
+//   },
+//   {
+//     id: 7,
+//     name: "Nike Air Max 2021",
+//     image: "https://api.slingacademy.com/public/sample-photos/87.jpeg",
+//     category: "Men's Shoes",
+//     price: 213,
+//   },
+
+//   // Thêm các sản phẩm khác
+// ];
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
-
+  const [loading, setLoading] = useState(true); // State để theo dõi trạng thái tải dữ liệu
+  const [error, setError] = useState(null);
   const categories = [
     { name: "Shoes (321)", count: 321 },
     { name: "Clothing (75)", count: 75 },
@@ -24,38 +80,63 @@ const ProductPage = () => {
     { name: "Green", class: "bg-green-200" },
   ];
 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await getAllProducts(); // Gọi hàm lấy sản phẩm từ productService
+        console.log("data===", data);
+        setProducts(data.products); // Lưu dữ liệu sản phẩm vào state
+        setLoading(false); // Cập nhật trạng thái tải dữ liệu hoàn thành
+      } catch (err) {
+        setError("Lỗi khi tải sản phẩm"); // Xử lý lỗi
+        setLoading(false); // Cập nhật trạng thái tải dữ liệu hoàn thành
+      }
+    };
+
+    fetchProducts(); // Gọi hàm fetchProducts khi component mount
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>; // Hiển thị khi đang tải dữ liệu
+  }
+
+  if (error) {
+    return <div>{error}</div>; // Hiển thị thông báo lỗi nếu có lỗi
+  }
+
   return (
     <>
       <Header />
-      <div className=" container mx-auto px-4 pb-8 pt-24">
+      <div className=' container mx-auto px-4 pb-8 pt-24'>
         {/* Link */}
-        <div className="flex items-center space-x-2 text-sm mb-8">
-          <a href="/" className="text-gray-600 hover:text-gray-900">
+        <div className='flex items-center space-x-2 text-sm mb-8'>
+          <a href='/' className='text-gray-600 hover:text-gray-900'>
             Home
           </a>
           <span>/</span>
-          <a href="/products" className="text-gray-600 hover:text-gray-900">
+          <a href='/products' className='text-gray-600 hover:text-gray-900'>
             Shop
           </a>
           <span>/</span>
-          <span className="text-gray-900">All Products</span>
+          <span className='text-gray-900'>All Products</span>
         </div>
 
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-2xl font-bold">All Products</h1>
-          <button className="flex items-center text-sm border px-4 py-2 rounded-lg">
+        <div className='flex items-center justify-between mb-8'>
+          <h1 className='text-2xl font-bold'>All Products</h1>
+          <button className='flex items-center text-sm border px-4 py-2 rounded-lg'>
             <span>Sort By</span>
-            <i className="ri-arrow-down-s-line text-lg"></i>
+            <i className='ri-arrow-down-s-line text-lg'></i>
           </button>
         </div>
 
         {/* Filter */}
-        <div className="grid grid-cols-12 gap-8">
+        <div className='grid grid-cols-12 gap-8'>
           <Filter categories={categories} colors={colors} />
 
-          {/* Product Listing */}
-          <div className="col-span-9 grid grid-cols-3 gap-6">
-            <ProductList products={products} />
+          <div className='col-span-9 grid grid-cols-3 gap-6'>
+            {products.map((product) => (
+              <ProductCard key={product._id} product={product} />
+            ))}
           </div>
         </div>
       </div>
