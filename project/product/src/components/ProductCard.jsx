@@ -16,9 +16,13 @@ const ProductCard = ({ product }) => {
       <a href={`/products/${product._id}`}>
         <div className='flex justify-between gap-2'>
           <div>
-            <h3 className='font-medium'>{product.name}</h3>
-            <p className='text-sm text-gray-600'>{product.category.name}</p>
-            <p className='text-sm text-gray-600 line-clamp-2'>
+            <h3 className='font-semibold text-gray-800 hover:text-black'>
+              {product.name}
+            </h3>
+            <p className='text-sm text-gray-600 font-semibold  my-1'>
+              {product.category.name}
+            </p>
+            <p className='text-sm text-gray-400 line-clamp-2'>
               {product.description}
             </p>
           </div>
