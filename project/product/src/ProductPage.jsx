@@ -158,13 +158,13 @@ import {
 
 const ProductPage = () => {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]); // State để lưu danh mục sản phẩm
+  const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1); // Trang hiện tại
-  const [productsPerPage] = useState(6); // 6 sản phẩm mỗi trang
-  const [selectedCategories, setSelectedCategories] = useState([]); // Danh mục được chọn cho việc lọc
-  const [priceRange, setPriceRange] = useState([0, 2000000]); // Phạm vi giá mặc định (0 - 500)
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(6);
+  const [selectedCategories, setSelectedCategories] = useState([]);
+  const [priceRange, setPriceRange] = useState([0, 5000000]);
 
   const colors = [
     { name: "Black", class: "bg-black" },

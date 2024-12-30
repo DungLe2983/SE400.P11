@@ -3,8 +3,7 @@ import { atom, selector } from "recoil";
 const userState = atom({
   key: "userState",
   default: {
-    name: "newUser",
-    password: "newUser",
+    token: localStorage.getItem("shosingToken") || "",
   },
 });
 

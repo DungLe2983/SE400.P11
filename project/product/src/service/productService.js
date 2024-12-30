@@ -31,3 +31,15 @@ export const getAllCategories = async () => {
     throw error; // Nếu có lỗi, ném ra để xử lý
   }
 };
+
+export const searchProducts = async (keyword) => {
+  try {
+    const response = await axios.get(
+      `http://localhost:8080/api/products/search?keyword=${keyword}`
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error fetching products: ", error);
+    throw error;
+  }
+};
