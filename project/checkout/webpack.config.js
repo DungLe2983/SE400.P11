@@ -70,11 +70,13 @@ module.exports = (_, argv) => ({
       remotes: {
         host: "host@http://localhost:3000/remoteEntry.js",
         home: "home@http://localhost:3001/remoteEntry.js",
+        auth: "auth@http://localhost:3004/remoteEntry.js",
       },
       exposes: {
         "./CartButton": "./src/components/CartButton.jsx",
         "./App": "./src/App.jsx",
         "./service/cartService": "./src/service/cartService.js",
+        "./service/orderService": "./src/service/orderService.js",
       },
       shared: {
         ...deps,

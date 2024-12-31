@@ -70,9 +70,11 @@ module.exports = (_, argv) => ({
       remotes: {
         host: "host@http://localhost:3000/remoteEntry.js",
         home: "home@http://localhost:3001/remoteEntry.js",
+        checkout: "checkout@http://localhost:3003/remoteEntry.js",
       },
       exposes: {
         "./App": "./src/App.jsx",
+        "./service/profileService": "./src/service/profileService.js",
       },
       shared: {
         ...deps,
