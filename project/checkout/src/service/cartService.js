@@ -68,3 +68,32 @@ export const updateItemQuantity = async (
   const data = await response.json();
   return data.cart; // Assuming the response contains the updated cart
 };
+
+export const addItemToCart = async (
+  token,
+  productId,
+  color,
+  size,
+  quantity
+) => {
+  const response = await fetch("http://localhost:8080/api/cart/items", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      productId,
+      color,
+      size,
+      quantity,
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to add item to cart");
+  }
+
+  const data = await response.json();
+  return data.cart;
+};

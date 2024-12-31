@@ -232,30 +232,30 @@ const ProductPage = () => {
   return (
     <>
       <Header />
-      <div className='container mx-auto px-4 pb-8 pt-24'>
-        <div className='flex items-center space-x-2 text-sm mb-8'>
-          <a href='/' className='text-gray-600 hover:text-gray-900'>
+      <div className="container mx-auto px-4 pb-8 pt-24">
+        <div className="flex items-center space-x-2 text-sm mb-8">
+          <a href="/" className="text-gray-600 hover:text-gray-900">
             Home
           </a>
           <span>/</span>
-          <a href='/products' className='text-gray-600 hover:text-gray-900'>
+          <a href="/products" className="text-gray-600 hover:text-gray-900">
             Shop
           </a>
           <span>/</span>
-          <span className='text-gray-900'>All Products</span>
+          <span className="text-gray-900">All Products</span>
         </div>
 
         {/* Page Title */}
-        <div className='flex items-center justify-between mb-8'>
-          <h1 className='text-2xl font-bold'>All Products</h1>
-          <button className='flex items-center text-sm border px-4 py-2 rounded-lg'>
+        <div className="flex items-center justify-between mb-8">
+          <h1 className="text-2xl font-bold">All Products</h1>
+          {/* <button className='flex items-center text-sm border px-4 py-2 rounded-lg'>
             <span>Sort By</span>
             <i className='ri-arrow-down-s-line text-lg'></i>
-          </button>
+          </button> */}
         </div>
 
         {/* Filter and Product List */}
-        <div className='grid grid-cols-12 gap-8'>
+        <div className="grid grid-cols-12 gap-8">
           <Filter
             categories={categories}
             selectedCategories={selectedCategories}
@@ -264,7 +264,7 @@ const ProductPage = () => {
             priceRange={priceRange}
             setPriceRange={setPriceRange} // Truyền giá trị và setter cho priceRange
           />
-          <div className='col-span-9 grid grid-cols-3 gap-6'>
+          <div className="col-span-9 grid grid-cols-3 gap-6">
             {currentProducts.map((product) => (
               <ProductCard key={product._id} product={product} />
             ))}
@@ -272,9 +272,9 @@ const ProductPage = () => {
         </div>
 
         {/* Phân trang */}
-        <div className='flex justify-center mt-8'>
+        <div className="flex justify-center mt-8">
           <nav>
-            <ul className='flex space-x-2'>
+            <ul className="flex space-x-2">
               {Array.from({ length: totalPages }, (_, index) => (
                 <li key={index + 1}>
                   <button

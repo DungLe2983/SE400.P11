@@ -1,5 +1,3 @@
-
-
 import React from "react";
 
 const Filter = ({
@@ -11,14 +9,14 @@ const Filter = ({
   setPriceRange,
 }) => {
   return (
-    <div className='col-span-3 space-y-8'>
+    <div className="col-span-3 space-y-8">
       <div>
-        <h2 className='font-semibold mb-4'>Categories</h2>
-        <div className='space-y-2'>
+        <h2 className="font-semibold mb-4">Categories</h2>
+        <div className="space-y-2">
           {categories.map((category) => (
-            <label key={category.name} className='flex items-center space-x-2'>
+            <label key={category.name} className="flex items-center space-x-2">
               <input
-                type='checkbox'
+                type="checkbox"
                 checked={selectedCategories.includes(category.name)}
                 onChange={(e) => {
                   if (e.target.checked) {
@@ -32,42 +30,42 @@ const Filter = ({
                     );
                   }
                 }}
-                className='rounded border-gray-300'
+                className="rounded border-gray-300"
               />
-              <span className='text-sm'>{category.name}</span>
+              <span className="text-sm">{category.name}</span>
             </label>
           ))}
         </div>
       </div>
 
       <div>
-        <h2 className='font-semibold mb-4'>Price</h2>
-        <div className='space-y-4'>
-          <div className='flex gap-2 justify-between'>
+        <h2 className="font-semibold mb-4">Price</h2>
+        <div className="space-y-4">
+          <div className="flex gap-2 justify-between">
             <input
-              type='number'
+              type="number"
               value={priceRange[0]}
               onChange={(e) => {
                 setPriceRange([parseInt(e.target.value), priceRange[1]]);
               }}
-              className='w-[45%] px-2 py-1 border rounded-lg'
-              placeholder='$200'
+              className="w-[45%] px-2 py-1 border rounded-lg"
+              placeholder="$200"
             />
             <span>-</span>
             <input
-              type='number'
+              type="number"
               value={priceRange[1]}
               onChange={(e) => {
                 setPriceRange([priceRange[0], parseInt(e.target.value)]);
               }}
-              className='w-[45%] px-2 py-1 border rounded-lg'
-              placeholder='$500'
+              className="w-[45%] px-2 py-1 border rounded-lg"
+              placeholder="$500"
             />
           </div>
         </div>
       </div>
 
-      <div>
+      {/* <div>
         <h2 className='font-semibold mb-4'>Color</h2>
         <div className='grid grid-cols-4 gap-2'>
           {colors.map((color) => (
@@ -90,7 +88,7 @@ const Filter = ({
             />
           ))}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

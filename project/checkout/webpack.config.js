@@ -74,6 +74,7 @@ module.exports = (_, argv) => ({
       exposes: {
         "./CartButton": "./src/components/CartButton.jsx",
         "./App": "./src/App.jsx",
+        "./service/cartService": "./src/service/cartService.js",
       },
       shared: {
         ...deps,
