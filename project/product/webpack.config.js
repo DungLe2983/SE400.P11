@@ -68,6 +68,7 @@ module.exports = (_, argv) => ({
       name: "product",
       filename: "remoteEntry.js",
       remotes: {
+        host: "host@http://localhost:3000/remoteEntry.js",
         home: "home@http://localhost:3001/remoteEntry.js",
         checkout: "checkout@http://localhost:3003/remoteEntry.js",
       },

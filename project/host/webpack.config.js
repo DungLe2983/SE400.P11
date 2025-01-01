@@ -76,6 +76,7 @@ module.exports = (_, argv) => ({
       },
       exposes: {
         "./recoil/store": "./src/recoil/store.js",
+        "./toast/share-toast": "./src/toast/share-toast.js",
       },
       shared: {
         ...deps,

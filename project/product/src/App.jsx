@@ -5,7 +5,6 @@ import "remixicon/fonts/remixicon.css";
 import "./index.scss";
 import SearchPage from "./SearchPage";
 
-
 const { Suspense, lazy } = React;
 
 const ProductPage = lazy(() => import("./ProductPage"));

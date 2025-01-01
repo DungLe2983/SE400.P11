@@ -7,6 +7,7 @@ import {
 
 import "./index.scss";
 import "remixicon/fonts/remixicon.css";
+import { Toaster } from "../src/toast/share-toast";
 
 const App = () => {
   const [routes, setRoutes] = useState([]);
@@ -28,7 +29,10 @@ const App = () => {
   }, []);
 
   return routes.length ? (
-    <RouterProvider router={createBrowserRouter(routes)} />
+    <>
+      <Toaster position='bottom-right' reverseOrder={false} />
+      <RouterProvider router={createBrowserRouter(routes)} />
+    </>
   ) : (
     <div>Loading...</div>
   );

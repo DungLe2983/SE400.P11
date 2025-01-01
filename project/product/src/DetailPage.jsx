@@ -8,6 +8,8 @@ import Footer from "home/Footer";
 import { getProductById } from "../src/service/productService"; // Import service để lấy dữ liệu
 import { addItemToCart } from "checkout/service/cartService";
 
+import { toast } from "host/toast/share-toast";
+
 const DetailPage = () => {
   const { id } = useParams(); // Lấy id từ URL
   const token = localStorage.getItem("shosingToken");
@@ -15,6 +17,7 @@ const DetailPage = () => {
   const [selectedVariation, setSelectedVariation] = useState(0);
   // const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState("1");
+
   // const [size, setSize] = useState("");
   const [selectedSize, setSelectedSize] = useState({
     size: "",
@@ -107,7 +110,7 @@ const DetailPage = () => {
   };
 
   const handleAddToCart = async () => {
-    console.log("Form data", formData);
+    // console.log("Form data", formData);
     const { productId, color, size, quantity, price } = formData;
     const response = await addItemToCart(
       token,
@@ -119,6 +122,8 @@ const DetailPage = () => {
 
     if (response !== null) {
       console.log("Thêm vào giỏ hàng thành công");
+      // toast.success("Thêm vào giỏ hàng thành công");
+      toast.success("Thêm vào giỏ hàng thành công");
     } else {
       console.error("Lỗi khi thêm vào giỏ hàng", response.message);
     }
@@ -133,33 +138,33 @@ const DetailPage = () => {
   return (
     <>
       <Header />
-      <div className="container mx-auto px-4 pb-8 pt-24">
+      <div className='container mx-auto px-4 pb-8 pt-24'>
         {/* Breadcrumb */}
-        <nav className="text-sm mb-8">
-          <ol className="flex items-center space-x-2">
+        <nav className='text-sm mb-8'>
+          <ol className='flex items-center space-x-2'>
             <li>
-              <Link to="/">Home</Link>
+              <Link to='/'>Home</Link>
             </li>
             <li>/</li>
             <li>
-              <Link to="/products">Shoes</Link>
+              <Link to='/products'>Shoes</Link>
             </li>
             <li>/</li>
             <li>{product.name}</li>
           </ol>
         </nav>
 
-        <div className="grid md:grid-cols-1 grid-cols-2 gap-8 mb-16">
+        <div className='grid md:grid-cols-1 grid-cols-2 gap-8 mb-16'>
           {/* Product Images */}
-          <div className="space-y-4">
-            <div className="h-[550px] w-[730px] relative overflow-hidden rounded-lg border">
+          <div className='space-y-4'>
+            <div className='h-[550px] w-[730px] relative overflow-hidden rounded-lg border'>
               <img
                 src={product.variations[selectedVariation].image} // Dùng ảnh từ API
-                alt="Product image"
-                className="object-cover"
+                alt='Product image'
+                className='object-cover'
               />
             </div>
-            <div className="grid grid-cols-4 gap-4">
+            <div className='grid grid-cols-4 gap-4'>
               {product.variations.map((variation, index) => (
                 <button
                   key={index}
@@ -171,7 +176,7 @@ const DetailPage = () => {
                   <img
                     src={variation.image} // Dùng ảnh từ API
                     alt={`Product thumbnail ${index}`}
-                    className="object-cover h-[150px] w-[220px]"
+                    className='object-cover h-[150px] w-[220px]'
                   />
                 </button>
               ))}
@@ -179,23 +184,23 @@ const DetailPage = () => {
           </div>
 
           {/* Product Info */}
-          <div className="flex flex-col ">
-            <div className="space-y-6">
+          <div className='flex flex-col '>
+            <div className='space-y-6'>
               <div>
-                <h1 className="text-4xl font-bold mb-2">{product.name}</h1>
-                <p className="text-gray-400 font-semibold text-[20px]">
+                <h1 className='text-4xl font-bold mb-2'>{product.name}</h1>
+                <p className='text-gray-400 font-semibold text-[20px]'>
                   {product.category.name}
                 </p>
               </div>
-              <div className="flex items-center justify-between">
+              <div className='flex items-center justify-between'>
                 {/* Hiển thị giá */}
-                <div className="text-3xl font-bold">
+                <div className='text-3xl font-bold'>
                   {selectedSize.price.toLocaleString()} đ
                 </div>
 
                 {/* Hiển thị rating */}
-                <div className="flex items-center space-x-2">
-                  <div className="flex">
+                <div className='flex items-center space-x-2'>
+                  <div className='flex'>
                     {[...Array(5)].map((_, i) => (
                       <i
                         key={i}
@@ -205,19 +210,19 @@ const DetailPage = () => {
                       ></i>
                     ))}
                   </div>
-                  <span className="text-muted-foreground">(15 Reviews)</span>
+                  <span className='text-muted-foreground'>(15 Reviews)</span>
                 </div>
               </div>
               {/* Hiển thị mô tả */}
-              <p className="text-muted-foreground border-y-2 py-12">
+              <p className='text-muted-foreground border-y-2 py-12'>
                 {product.description}
               </p>{" "}
             </div>
 
-            <div className="space-y-4">
-              <div className="flex gap-4 mt-8">
+            <div className='space-y-4'>
+              <div className='flex gap-4 mt-8'>
                 <div>
-                  <label className="text-sm font-bold mb-2 block">Size</label>
+                  <label className='text-sm font-bold mb-2 block'>Size</label>
                   {/* <select
                     id="size"
                     value={size}
@@ -235,7 +240,7 @@ const DetailPage = () => {
                   <select
                     value={selectedSize.size}
                     onChange={handleSizeChange}
-                    className="w-24 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    className='w-24 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-slate-900'
                   >
                     {product.variations[selectedVariation].sizes.map((size) => (
                       <option key={size.size} value={size.size}>
@@ -245,7 +250,7 @@ const DetailPage = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="text-sm font-bold mb-2 block">
+                  <label className='text-sm font-bold mb-2 block'>
                     Quantity
                   </label>
                   {/* <select
@@ -269,7 +274,7 @@ const DetailPage = () => {
                   <select
                     value={quantity}
                     onChange={handleQuantityChange}
-                    className="w-24 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-slate-900"
+                    className='w-24 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-slate-900'
                   >
                     {[...Array(selectedSize.stock)].map((_, i) => (
                       <option key={i + 1} value={i + 1}>
@@ -281,8 +286,8 @@ const DetailPage = () => {
               </div>
               <button
                 onClick={handleAddToCart}
-                className="w-fit rounded-lg bg-[#100D22] text-white py-4 px-12"
-                size="lg"
+                className='w-fit rounded-lg bg-[#100D22] text-white py-4 px-12'
+                size='lg'
               >
                 Add to Cart
               </button>
