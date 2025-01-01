@@ -22,8 +22,27 @@ một hệ thống hoàn chỉnh khi kết hợp lại. Cấu trúc dự án bao
   2. **Product**: Hiển thi danh sách sản phẩm, chi tiết sản phẩm.
   3. **Checkout**: Quản lý giỏ hàng, mua hàng.
   4. **Auth**: Quản lý thông tin người dùng, đăng nhập và đăng ký.
+
 ![MF](./UI/demo_ui/WR.png)
 
+### Micro frontends hoạt động như thế nào?
+
+- Dựa trên ý tưởng đã nêu ra trước đó, chúng ta có thể tách phần FE của ứng dụng thành các thành phần nhỏ hơn, đảm nhiệm chức năng cụ thể.
+- Ứng dụng gồm các thành phần như 
+    + App shell: là nơi người dùng tương tác với ứng dụng. Có chức năng tập hợp các micro front-end lại với nhau và hiển thị cho người dùng. 
+    + Các micro front-end là các ứng dụng độc lập có thể phát triển riêng
+- Để các ứng dụng có thể tương tác với nhau, nhóm sử dụng module federation để chia sẻ và nhận components.
+
+## Khi nào sử dụng Micro frontends
+
+- **Ứng dụng lớn, phức tạp**: Giúp chia nhỏ và dễ quản lý các phần của ứng dụng.
+- **Đội ngũ phát triển lớn**: Cho phép các nhóm làm việc độc lập trên các module mà không xung đột.
+- **Hỗ trợ công nghệ khác nhau**: Kết hợp các framework và công nghệ khác nhau trong cùng một ứng dụng.
+- **Độc lập triển khai và bảo trì**: Các module có thể được triển khai và nâng cấp riêng biệt mà không ảnh hưởng đến toàn bộ ứng dụng.
+- **Khả năng mở rộng dễ dàng**: Dễ dàng thêm các tính năng mới mà không làm phức tạp hệ thống.
+- **Tái sử dụng module**: Giảm thiểu việc phát triển lại khi sử dụng các module cho các ứng dụng khác.
+- **Tốc độ phát triển nhanh**: Cho phép phát triển nhanh nhiều tính năng mà không gây gián đoạn các phần khác.
+  
 ## Công nghệ sử dụng
 
 Dự án này sử dụng các công nghệ sau:
